@@ -4,25 +4,37 @@ import Square from "./Square.js";
 
 class Board extends React.Component {
   renderElement(elementId) {
-    return (
-      <Square
-        elementId={elementId}
-        colorElId={this.state.colorElId}
-        elementLine={this.state.elementLine}
-        squareUpdate={this.squareUpdate.bind(this)}
-      />
-    );
+    if (elementId !== this.state.colorElId) {
+      return (
+        <Square
+          elementId={elementId}
+          colorElId={-1}
+          elementLine={-1}
+          squareUpdate={this.squareUpdate.bind(this)}
+        />
+      );
+    } else {
+      return (
+        <Square
+          elementId={elementId}
+          colorElId={this.state.colorElId}
+          elementLine={this.state.elementLine}
+          squareUpdate={this.squareUpdate.bind(this)}
+        />
+      );
+    }
   }
   constructor(props) {
     super(props);
     this.state = {
-      elementId: 0,
-      elementLine: 0,
-      colorElId: 2
+      elementId: -1,
+      elementLine: -1,
+      colorElId: -1
     };
   }
 
   //(square that must be colored, line that must be colored)
+  //change after click  square ID and square border in STATE
   squareUpdate(colorElId, elementLine) {
     this.setState({
       colorElId,

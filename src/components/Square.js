@@ -24,31 +24,30 @@ class Square extends React.Component {
     if (id === 1) {
       this.setState({ selected1: true }, () => {
         this.onChangeListener();
+        // console.log(this.state);
       });
       this.bordersPainter1_3();
-      console.log(this.state.onClick);
     }
     if (id === 2) {
       this.setState({ selected2: true }, () => {
         this.onChangeListener();
+        // console.log(this.state);
       });
       this.bordersPainter2_4();
-      console.log(this.state);
     }
     if (id === 3) {
       this.setState({ selected3: true }, () => {
         this.onChangeListener();
+        // console.log(this.state);
       });
       this.bordersPainter3_1();
-      console.log(this.state);
     }
     if (id === 4) {
       this.setState({ selected4: true }, () => {
         this.onChangeListener();
+        // console.log(this.state);
       });
       this.bordersPainter4_2();
-
-      console.log(this.state);
     }
   }
   bordersPainter1_3() {
@@ -301,6 +300,18 @@ class Square extends React.Component {
       }
     }
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state !== nextState) {
+      return true;
+    }
+    if (this.props.elementLine !== nextProps.elementLine) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   //вызывается каждым квадратом когда что то поменялось в стейте
   componentDidUpdate(props, state) {
     //каждый квадрат проверяет он ли тот квадрат который нужно покрасить,
@@ -308,30 +319,46 @@ class Square extends React.Component {
     if (this.props.elementId === this.props.colorElId) {
       if (this.props.elementLine === 1) {
         if (this.state.selected1 !== true) {
-          this.setState({
-            selected1: true
-          });
+          this.setState(
+            {
+              selected1: true
+            },
+            this.onChangeListener(),
+            console.log(this.state)
+          );
         }
       }
       if (this.props.elementLine === 2) {
         if (this.state.selected2 !== true) {
-          this.setState({
-            selected2: true
-          });
+          this.setState(
+            {
+              selected2: true
+            },
+            this.onChangeListener(),
+            console.log(this.state)
+          );
         }
       }
       if (this.props.elementLine === 3) {
         if (this.state.selected3 !== true) {
-          this.setState({
-            selected3: true
-          });
+          this.setState(
+            {
+              selected3: true
+            },
+            this.onChangeListener(),
+            console.log(this.state)
+          );
         }
       }
       if (this.props.elementLine === 4) {
         if (this.state.selected4 !== true) {
-          this.setState({
-            selected4: true
-          });
+          this.setState(
+            {
+              selected4: true
+            },
+            this.onChangeListener(),
+            console.log(this.state)
+          );
         }
       }
     }
