@@ -31,6 +31,7 @@ class Board extends React.Component {
       elementLine: -1,
       colorElId: -1
     };
+    console.log("test");
   }
 
   //(square that must be colored, line that must be colored)

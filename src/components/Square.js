@@ -8,6 +8,7 @@ class Square extends React.Component {
 
     this.clickHandler = this.clickHandler.bind(this);
     this.onChangeListener = this.onChangeListener.bind(this);
+    this.bordersOnStart = this.bordersOnStart.bind(this);
 
     this.state = {
       elementId: this.props.elementId,
@@ -18,7 +19,72 @@ class Square extends React.Component {
       selected5: false
     };
   }
-
+  //rerender the board with black borders
+  componentDidMount() {
+    this.bordersOnStart(this.state.elementId);
+  }
+  //borders to black on start
+  bordersOnStart(elementId) {
+    switch (elementId) {
+      case 0:
+        this.setState({
+          selected1: true,
+          selected2: true,
+          selected3: true
+        });
+        break;
+      case 9:
+        this.setState({
+          selected1: true,
+          selected2: true,
+          selected4: true
+        });
+        break;
+      case 15:
+        this.setState({
+          selected2: true,
+          selected3: true,
+          selected4: true
+        });
+        break;
+      case 24:
+        this.setState({
+          selected1: true,
+          selected3: true,
+          selected4: true
+        });
+        break;
+      case 1:
+      case 4:
+        this.setState({
+          selected1: true,
+          selected2: true
+        });
+        break;
+      case 3:
+      case 8:
+        this.setState({
+          selected2: true,
+          selected3: true
+        });
+        break;
+      case 16:
+      case 21:
+        this.setState({
+          selected1: true,
+          selected4: true
+        });
+        break;
+      case 20:
+      case 23:
+        this.setState({
+          selected3: true,
+          selected4: true
+        });
+        break;
+      default:
+    }
+  }
   //by clicking on element className changed to 'true', and plugin CSS-style
   clickHandler(id) {
     if (id === 1) {
