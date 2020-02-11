@@ -10,7 +10,7 @@ class Square extends React.Component {
     this.onChangeListener = this.onChangeListener.bind(this);
 
     this.state = {
-      elementId: this.props,
+      elementId: this.props.elementId,
       selected1: false,
       selected2: false,
       selected3: false,
@@ -323,7 +323,9 @@ class Square extends React.Component {
             {
               selected1: true
             },
-            this.onChangeListener(),
+            () => {
+              this.onChangeListener();
+            },
             console.log(this.state)
           );
         }
@@ -334,7 +336,9 @@ class Square extends React.Component {
             {
               selected2: true
             },
-            this.onChangeListener(),
+            () => {
+              this.onChangeListener();
+            },
             console.log(this.state)
           );
         }
@@ -345,7 +349,9 @@ class Square extends React.Component {
             {
               selected3: true
             },
-            this.onChangeListener(),
+            () => {
+              this.onChangeListener();
+            },
             console.log(this.state)
           );
         }
@@ -356,7 +362,9 @@ class Square extends React.Component {
             {
               selected4: true
             },
-            this.onChangeListener(),
+            () => {
+              this.onChangeListener();
+            },
             console.log(this.state)
           );
         }
