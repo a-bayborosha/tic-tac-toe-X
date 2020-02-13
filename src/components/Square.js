@@ -9,6 +9,7 @@ class Square extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.onChangeListener = this.onChangeListener.bind(this);
     this.bordersOnStart = this.bordersOnStart.bind(this);
+    this.checkColor = this.checkColor.bind(this);
 
     this.state = {
       elementId: this.props.elementId,
@@ -19,7 +20,20 @@ class Square extends React.Component {
       selected5: false
     };
   }
+
+  playerColorChange(playerColor) {
+    if (this.state.playerColor) {
+      this.setState({
+        playerColor: false
+      });
+    } else {
+      this.setState({
+        playerColor: true
+      });
+    }
+  }
   //rerender the board with black borders
+  //function call immidiatly after the first render
   componentDidMount() {
     this.bordersOnStart(this.state.elementId);
   }
@@ -85,19 +99,17 @@ class Square extends React.Component {
       default:
     }
   }
-  //by clicking on element className changed to 'true', and plugin CSS-style
+  //by clicking on element, element's className changed to 'true', and CSS-style pluged in
   clickHandler(id) {
     if (id === 1) {
       this.setState({ selected1: true }, () => {
         this.onChangeListener();
-        // console.log(this.state);
       });
       this.bordersPainter1_3();
     }
     if (id === 2) {
       this.setState({ selected2: true }, () => {
         this.onChangeListener();
-        // console.log(this.state);
       });
       this.bordersPainter2_4();
     }
@@ -124,7 +136,7 @@ class Square extends React.Component {
 
   bordersPainter2_4() {
     switch (this.state.elementId) {
-      case 0:
+      case 2:
       case 24:
         this.props.squareUpdate(this.state.elementId - 2, 4);
         break;
@@ -169,6 +181,7 @@ class Square extends React.Component {
   //as soon as changes (to true) occur in state of all 4 elements, testing the 5th element for "false"
   //with changing the state to "true" and subsequent CSS plug in
   onChangeListener() {
+    console.log("selected5 is " + this.state.selected5, this.state);
     if (
       this.state.selected1 &&
       this.state.selected2 &&
@@ -188,6 +201,7 @@ class Square extends React.Component {
     }
   }
 
+  //
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state !== nextState) {
       return true;
@@ -212,8 +226,8 @@ class Square extends React.Component {
             },
             () => {
               this.onChangeListener();
-            },
-            console.log(this.state)
+            }
+            //console.log(this.state)
           );
         }
       }
@@ -225,8 +239,8 @@ class Square extends React.Component {
             },
             () => {
               this.onChangeListener();
-            },
-            console.log(this.state)
+            }
+            // console.log(this.state)
           );
         }
       }
@@ -238,8 +252,8 @@ class Square extends React.Component {
             },
             () => {
               this.onChangeListener();
-            },
-            console.log(this.state)
+            }
+            //console.log(this.state)
           );
         }
       }
@@ -251,11 +265,21 @@ class Square extends React.Component {
             },
             () => {
               this.onChangeListener();
-            },
-            console.log(this.state)
+            }
+            //console.log(this.state)
           );
         }
       }
+    }
+  }
+
+  checkColor() {
+    console.log(this.state);
+    let colorSwitcher = true;
+    if (colorSwitcher) {
+      return this.state.selected5 ? "bgcolor1" : "default";
+    } else {
+      return this.state.selected5 ? "bgcolor2" : "default";
     }
   }
 
@@ -317,23 +341,23 @@ class Square extends React.Component {
     //######################################################
     return (
       <Div>
-        <Rect className={this.state.selected5 ? "bgcolor" : "default"}> </Rect>{" "}
         <Line1
           className={this.state.selected1 ? "bgcolor" : "default"}
           onClick={!this.state.selected1 ? () => this.clickHandler(1) : null}
-        ></Line1>{" "}
+        ></Line1>
         <Line2
           className={this.state.selected2 ? "bgcolor" : "default"}
           onClick={!this.state.selected2 ? () => this.clickHandler(2) : null}
-        ></Line2>{" "}
+        ></Line2>
         <Line3
           className={this.state.selected3 ? "bgcolor" : "default"}
           onClick={!this.state.selected3 ? () => this.clickHandler(3) : null}
-        ></Line3>{" "}
+        ></Line3>
         <Line4
           className={this.state.selected4 ? "bgcolor" : "default"}
           onClick={!this.state.selected4 ? () => this.clickHandler(4) : null}
-        ></Line4>{" "}
+        ></Line4>
+        <Rect className={this.checkColor()}> </Rect>
       </Div>
     );
   }

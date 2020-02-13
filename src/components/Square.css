@@ -1,6 +1,10 @@
 .default {
-    background: transparent
-  }
-  .bgcolor {
-    background: black
-  }
+  background: transparent;
+}
+.bgcolor {
+  background: black;
+}
+
+.bgcolor2 {
+  background: red;
+}
