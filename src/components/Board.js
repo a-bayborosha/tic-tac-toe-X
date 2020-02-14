@@ -11,6 +11,8 @@ class Board extends React.Component {
           colorElId={-1}
           elementLine={-1}
           squareUpdate={this.squareUpdate.bind(this)}
+          currentPlayer={this.state.currentPlayer}
+          playerSwitcher={this.playerSwitcher.bind(this)}
         />
       );
     } else {
@@ -20,6 +22,8 @@ class Board extends React.Component {
           colorElId={this.state.colorElId}
           elementLine={this.state.elementLine}
           squareUpdate={this.squareUpdate.bind(this)}
+          currentPlayer={this.state.currentPlayer}
+          playerSwitcher={this.playerSwitcher.bind(this)}
         />
       );
     }
@@ -29,7 +33,8 @@ class Board extends React.Component {
     this.state = {
       elementId: -1,
       elementLine: -1,
-      colorElId: -1
+      colorElId: -1,
+      currentPlayer: "black"
     };
   }
 
@@ -40,6 +45,18 @@ class Board extends React.Component {
       colorElId,
       elementLine
     });
+  }
+
+  playerSwitcher() {
+    if (this.state.currentPlayer !== "black") {
+      this.setState({
+        currentPlayer: "black"
+      });
+    } else {
+      this.setState({
+        currentPlayer: "red"
+      });
+    }
   }
 
   render() {
@@ -53,6 +70,8 @@ class Board extends React.Component {
           float: "left"
         }}
       >
+        <p>{this.state.currentPlayer}</p>
+        <p>{this.state.colorElId}</p>
         <div className="board-row"> {this.renderElement(0)} </div>
         <div className="board-row">
           {" "}

@@ -3,13 +3,14 @@ import styled from "styled-components";
 import "./Square.css";
 
 class Square extends React.Component {
+  colorSwitcher = false;
   constructor(props) {
     super(props);
 
     this.clickHandler = this.clickHandler.bind(this);
     this.onChangeListener = this.onChangeListener.bind(this);
     this.bordersOnStart = this.bordersOnStart.bind(this);
-    this.checkColor = this.checkColor.bind(this);
+    //this.checkColor = this.checkColor.bind(this);
 
     this.state = {
       elementId: this.props.elementId,
@@ -17,21 +18,11 @@ class Square extends React.Component {
       selected2: false,
       selected3: false,
       selected4: false,
-      selected5: false
+      selected5: false,
+      playerColor: "default"
     };
   }
 
-  playerColorChange(playerColor) {
-    if (this.state.playerColor) {
-      this.setState({
-        playerColor: false
-      });
-    } else {
-      this.setState({
-        playerColor: true
-      });
-    }
-  }
   //rerender the board with black borders
   //function call immidiatly after the first render
   componentDidMount() {
@@ -181,23 +172,27 @@ class Square extends React.Component {
   //as soon as changes (to true) occur in state of all 4 elements, testing the 5th element for "false"
   //with changing the state to "true" and subsequent CSS plug in
   onChangeListener() {
-    console.log("selected5 is " + this.state.selected5, this.state);
+    console.log(this.props.currentPlayer, this.props.elementId);
     if (
       this.state.selected1 &&
       this.state.selected2 &&
       this.state.selected3 &&
       this.state.selected4
     ) {
-      if (!this.state.selected5) {
+      if (!this.state.selected5 || this.state.playerColor === "default") {
         this.setState(
           {
-            selected5: true
+            selected5: true,
+            playerColor: this.props.currentPlayer
           },
           () => {
             this.onChangeListener();
           }
         );
       }
+    } else {
+      //TODO switchPlayer
+      this.props.playerSwitcher(this.props.currentPlayer);
     }
   }
 
@@ -273,15 +268,15 @@ class Square extends React.Component {
     }
   }
 
-  checkColor() {
-    console.log(this.state);
-    let colorSwitcher = true;
-    if (colorSwitcher) {
-      return this.state.selected5 ? "bgcolor1" : "default";
+  /* checkColor() {
+    if (this.colorSwitcher) {
+      this.colorSwitcher = !this.colorSwitcher;
+      return this.state.selected5 ? "bgcolor" : "default";
     } else {
+      this.colorSwitcher = !this.colorSwitcher;
       return this.state.selected5 ? "bgcolor2" : "default";
     }
-  }
+  } */
 
   render() {
     //############### POSITION & STYLES ##############################
@@ -342,22 +337,22 @@ class Square extends React.Component {
     return (
       <Div>
         <Line1
-          className={this.state.selected1 ? "bgcolor" : "default"}
+          className={this.state.selected1 ? "black" : "default"}
           onClick={!this.state.selected1 ? () => this.clickHandler(1) : null}
         ></Line1>
         <Line2
-          className={this.state.selected2 ? "bgcolor" : "default"}
+          className={this.state.selected2 ? "black" : "default"}
           onClick={!this.state.selected2 ? () => this.clickHandler(2) : null}
         ></Line2>
         <Line3
-          className={this.state.selected3 ? "bgcolor" : "default"}
+          className={this.state.selected3 ? "black" : "default"}
           onClick={!this.state.selected3 ? () => this.clickHandler(3) : null}
         ></Line3>
         <Line4
-          className={this.state.selected4 ? "bgcolor" : "default"}
+          className={this.state.selected4 ? "black" : "default"}
           onClick={!this.state.selected4 ? () => this.clickHandler(4) : null}
         ></Line4>
-        <Rect className={this.checkColor()}> </Rect>
+        <Rect className={this.state.playerColor}> </Rect>
       </Div>
     );
   }
