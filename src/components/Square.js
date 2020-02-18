@@ -121,55 +121,230 @@ class Square extends React.Component {
     }
   }
   bordersPainter1_3() {
-    if (this.state.elementId) {
-      this.props.squareUpdate(this.state.elementId - 1, 3);
+    if (this.props.elementId === 2) {
+      this.props.squareUpdate(1, 3);
+    }
+    if (this.props.elementId === 3) {
+      this.props.squareUpdate(2, 3);
+    }
+    if (this.props.elementId === 5) {
+      this.props.squareUpdate(4, 3);
+    }
+    if (this.props.elementId === 6) {
+      this.props.squareUpdate(5, 3);
+    }
+    if (this.props.elementId === 7) {
+      this.props.squareUpdate(6, 3);
+    }
+    if (this.props.elementId === 8) {
+      this.props.squareUpdate(7, 3);
+    }
+    if (this.props.elementId === 10) {
+      this.props.squareUpdate(9, 3);
+    }
+    if (this.props.elementId === 11) {
+      this.props.squareUpdate(10, 3);
+    }
+    if (this.props.elementId === 12) {
+      this.props.squareUpdate(11, 3);
+    }
+    if (this.props.elementId === 13) {
+      this.props.squareUpdate(12, 3);
+    }
+    if (this.props.elementId === 14) {
+      this.props.squareUpdate(13, 3);
+    }
+    if (this.props.elementId === 15) {
+      this.props.squareUpdate(14, 3);
+    }
+    if (this.props.elementId === 17) {
+      this.props.squareUpdate(16, 3);
+    }
+    if (this.props.elementId === 18) {
+      this.props.squareUpdate(17, 3);
+    }
+    if (this.props.elementId === 19) {
+      this.props.squareUpdate(18, 3);
+    }
+    if (this.props.elementId === 20) {
+      this.props.squareUpdate(19, 3);
+    }
+    if (this.props.elementId === 22) {
+      this.props.squareUpdate(21, 3);
+    }
+    if (this.props.elementId === 23) {
+      this.props.squareUpdate(22, 3);
     }
   }
-
   bordersPainter2_4() {
-    switch (this.state.elementId) {
-      case 2:
-      case 24:
-        this.props.squareUpdate(this.state.elementId - 2, 4);
-        break;
-      case 5:
-      case 6:
-      case 7:
-      case 21:
-      case 22:
-      case 23:
-        this.props.squareUpdate(this.state.elementId - 4, 4);
-        break;
-      default:
-        this.props.squareUpdate(this.state.elementId - 6, 4);
+    if (this.props.elementId === 2) {
+      this.props.squareUpdate(0, 4);
+    }
+    if (this.props.elementId === 5) {
+      this.props.squareUpdate(1, 4);
+    }
+    if (this.props.elementId === 6) {
+      this.props.squareUpdate(2, 4);
+    }
+    if (this.props.elementId === 7) {
+      this.props.squareUpdate(3, 4);
+    }
+    if (this.props.elementId === 10) {
+      this.props.squareUpdate(4, 4);
+    }
+    if (this.props.elementId === 11) {
+      this.props.squareUpdate(5, 4);
+    }
+    if (this.props.elementId === 12) {
+      this.props.squareUpdate(6, 4);
+    }
+    if (this.props.elementId === 13) {
+      this.props.squareUpdate(7, 3);
+    }
+    if (this.props.elementId === 14) {
+      this.props.squareUpdate(8, 4);
+    }
+    if (this.props.elementId === 16) {
+      this.props.squareUpdate(10, 4);
+    }
+    if (this.props.elementId === 17) {
+      this.props.squareUpdate(11, 4);
+    }
+    if (this.props.elementId === 18) {
+      this.props.squareUpdate(12, 4);
+    }
+    if (this.props.elementId === 19) {
+      this.props.squareUpdate(13, 4);
+    }
+    if (this.props.elementId === 20) {
+      this.props.squareUpdate(14, 4);
+    }
+    if (this.props.elementId === 21) {
+      this.props.squareUpdate(17, 4);
+    }
+    if (this.props.elementId === 22) {
+      this.props.squareUpdate(18, 4);
+    }
+    if (this.props.elementId === 23) {
+      this.props.squareUpdate(19, 4);
+    }
+    if (this.props.elementId === 24) {
+      this.props.squareUpdate(22, 4);
     }
   }
-
   bordersPainter3_1() {
-    if (this.state.elementId) {
-      this.props.squareUpdate(this.state.elementId + 1, 1);
+    if (this.props.elementId === 1) {
+      this.props.squareUpdate(2, 1);
+    }
+    if (this.props.elementId === 2) {
+      this.props.squareUpdate(3, 1);
+    }
+    if (this.props.elementId === 4) {
+      this.props.squareUpdate(5, 1);
+    }
+    if (this.props.elementId === 5) {
+      this.props.squareUpdate(6, 1);
+    }
+    if (this.props.elementId === 6) {
+      this.props.squareUpdate(7, 1);
+    }
+    if (this.props.elementId === 7) {
+      this.props.squareUpdate(8, 1);
+    }
+    if (this.props.elementId === 9) {
+      this.props.squareUpdate(10, 1);
+    }
+    if (this.props.elementId === 10) {
+      this.props.squareUpdate(11, 1);
+    }
+    if (this.props.elementId === 11) {
+      this.props.squareUpdate(12, 1);
+    }
+    if (this.props.elementId === 12) {
+      this.props.squareUpdate(13, 1);
+    }
+    if (this.props.elementId === 13) {
+      this.props.squareUpdate(14, 1);
+    }
+    if (this.props.elementId === 14) {
+      this.props.squareUpdate(15, 1);
+    }
+    if (this.props.elementId === 16) {
+      this.props.squareUpdate(17, 1);
+    }
+    if (this.props.elementId === 17) {
+      this.props.squareUpdate(18, 1);
+    }
+    if (this.props.elementId === 18) {
+      this.props.squareUpdate(19, 1);
+    }
+    if (this.props.elementId === 19) {
+      this.props.squareUpdate(20, 1);
+    }
+    if (this.props.elementId === 21) {
+      this.props.squareUpdate(22, 1);
+    }
+    if (this.props.elementId === 22) {
+      this.props.squareUpdate(23, 1);
     }
   }
-
   bordersPainter4_2() {
-    switch (this.state.elementId) {
-      case 0:
-      case 22:
-        this.props.squareUpdate(this.state.elementId + 2, 2);
-        break;
-      case 1:
-      case 2:
-      case 3:
-      case 17:
-      case 18:
-      case 19:
-        this.props.squareUpdate(this.state.elementId + 4, 2);
-        break;
-      default:
-        this.props.squareUpdate(this.state.elementId + 6, 2);
+    //if you are in the prime square
+    if (this.props.elementId === 0) {
+      this.props.squareUpdate(2, 2); //(secondary square, prime square line)
+    }
+    if (this.props.elementId === 1) {
+      this.props.squareUpdate(5, 2);
+    }
+    if (this.props.elementId === 2) {
+      this.props.squareUpdate(6, 2);
+    }
+    if (this.props.elementId === 3) {
+      this.props.squareUpdate(7, 2);
+    }
+    if (this.props.elementId === 4) {
+      this.props.squareUpdate(10, 2);
+    }
+    if (this.props.elementId === 5) {
+      this.props.squareUpdate(11, 2);
+    }
+    if (this.props.elementId === 6) {
+      this.props.squareUpdate(12, 2);
+    }
+    if (this.props.elementId === 7) {
+      this.props.squareUpdate(13, 2);
+    }
+    if (this.props.elementId === 8) {
+      this.props.squareUpdate(14, 2);
+    }
+    if (this.props.elementId === 10) {
+      this.props.squareUpdate(16, 2);
+    }
+    if (this.props.elementId === 11) {
+      this.props.squareUpdate(17, 2);
+    }
+    if (this.props.elementId === 12) {
+      this.props.squareUpdate(18, 2);
+    }
+    if (this.props.elementId === 13) {
+      this.props.squareUpdate(19, 2);
+    }
+    if (this.props.elementId === 14) {
+      this.props.squareUpdate(20, 2);
+    }
+    if (this.props.elementId === 17) {
+      this.props.squareUpdate(21, 2);
+    }
+    if (this.props.elementId === 18) {
+      this.props.squareUpdate(22, 2);
+    }
+    if (this.props.elementId === 19) {
+      this.props.squareUpdate(23, 2);
+    }
+    if (this.props.elementId === 22) {
+      this.props.squareUpdate(24, 2);
     }
   }
-
   //as soon as changes (to true) occur in state of all 4 elements, testing the 5th element for "false"
   //with changing the state to "true" and subsequent CSS plug in
   onChangeListener() {
@@ -193,7 +368,10 @@ class Square extends React.Component {
       }
     } else {
       //TODO switchPlayer
-      if (this.props.elementId === this.props.colorElId) {
+      if (
+        this.props.elementId === this.props.colorElId &&
+        this.setState.selected5
+      ) {
         this.props.playerSwitcher(this.props.currentPlayer);
       }
     }
