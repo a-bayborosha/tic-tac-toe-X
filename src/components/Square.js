@@ -10,6 +10,7 @@ class Square extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.onChangeListener = this.onChangeListener.bind(this);
     this.bordersOnStart = this.bordersOnStart.bind(this);
+
     //this.checkColor = this.checkColor.bind(this);
 
     this.state = {
@@ -192,7 +193,9 @@ class Square extends React.Component {
       }
     } else {
       //TODO switchPlayer
-      this.props.playerSwitcher(this.props.currentPlayer);
+      if (this.props.elementId === this.props.colorElId) {
+        this.props.playerSwitcher(this.props.currentPlayer);
+      }
     }
   }
 
